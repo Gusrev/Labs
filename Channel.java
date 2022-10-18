@@ -26,7 +26,7 @@ public class Channel {
     public static void main(String[] args)
     {
         /* x^3 + x^2 + 1 */
-        int gPoly = 0b1101;
+        /*int gPoly = 0b1101;
 
         Channel channel = new Channel(gPoly);
 
@@ -37,8 +37,28 @@ public class Channel {
         channel.errorDetectionProbability(messages, 0.2);
         channel.errorDetectionProbability(messages, 0.5);
         channel.errorDetectionProbability(messages, 1);
+        */
 
+        //double Pab = 0.32; double Pac = 0.32; double Pbd = 1.00;  double Pbe = 0.71; double Pce = 0.34;  double Pcg = 0.53; double Pdf = 0.33;  double Peg = 0.34;  double Pfg = 0.43;
+       //double Pab = 0.32; double Pac = 0.32; double Pbd = 0.30;  double Pbe = 0.71; double Pce = 0.34;  double Pcg = 0.73; double Pdf = 0.33;  double Peg = 0.44;  double Pfg = 0.43;
+     // double Pab = 0.32; double Pac = 0.32; double Pbd = 0.30;  double Pbe = 0.71; double Pce = 0.34;  double Pcg = 0.33; double Pdf = 0.33;  double Peg = 0.04;  double Pfg = 0.03;
+         //double Pab = 0.12; double Pac = 0.52; double Pbd = 0.40;  double Pbe = 0.48; double Pce = 0.57;  double Pcg = 0.88; double Pdf = 0.47;  double Peg = 0.12;  double Pfg = 0.35;
+       double Pab = 0.72; double Pac = 0.34; double Pbd = 0.65;  double Pbe = 0.78; double Pce = 0.87;  double Pcg = 0.78; double Pdf = 0.68;  double Peg = 0.89;  double Pfg = 0.43;
 
+        // 0.48326
+        // 0.48446
+        // 0.63056
+        //0.58888
+        //0.15485
+
+        double AtB = ((1-Pab) + Pab*(1-Pac)*(1-Pce)*(1-Pbe))*(1-Pbd)*(1-Pdf)*(1-Pfg);
+        double AtE = ((1-Pab)*(1-Pbe) + (1-(1-Pab)*(1-Pbe))*(1-Pac)*(1-Pce))*(1-Peg)*(1-(1-Pbd)*(1-Pdf)*(1-Pfg));
+        double AtC = ((1-Pab)*(1-Pbe)*(1-Pce) + (1-(1-Pab)*(1-Pbe)*(1-Pce))*(1-Pac))*(1-Pcg)*(1-(1-Pbd)*(1-Pdf)*(1-Pfg))*Peg;
+
+        System.out.println(AtB + AtE + AtC);
+        //double b3 = Pab*((1-(1-Pbe)*(1-Pbd)*(1-Pdf)*(1-Pfg)*(1-Pce))*Peg*(1-Pce) + Pce + (1-(1-Pce)*(1-Peg))*Pbe)*(1-Pcg);
+// b3 = Pab*(1-Pac)*(1-Pcg)*
+//                ((1-(1-Pce)*(1-Pbe)*(1-Pbd)*(1-Pdf)*(1-Pfg)) + (1-(1-Pce)*(1-Peg))*Pbe);
     }
 
     private void errorDetectionProbability(int n, double p)
